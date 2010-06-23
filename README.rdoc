@@ -17,3 +17,6 @@ The plugin extends the RaphaelJS object.
   var json = paper.serialize.json(); // saves as json
   paper.clear();
   paper.serialize.load_json(json); // load it back
+
+
+Thanks to Ben Barnett http://www.benbarnett.net/ for his work on serializing paths.
