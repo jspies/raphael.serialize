@@ -1,0 +1,19 @@
+=Raphael.serialize
+
+This is a plugin to http://raphaeljs.com, a javascript library for working with SVG on the web. This plugin gives functions for saving SVG data and loading it back into the canvas.
+
+Currently supports JSON and basic shapes.
+
+==Install
+
+Just include the raphael.serialize.js after you include the raphael.js library.
+
+==Usage
+
+The plugin extends the RaphaelJS object.
+  
+  var paper = Raphael('yourcanvas', '300', '300');
+  // Do some drawing
+  var json = paper.serialize.json(); // saves as json
+  paper.clear();
+  paper.serialize.load_json(json); // load it back
