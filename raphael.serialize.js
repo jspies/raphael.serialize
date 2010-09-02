@@ -107,6 +107,8 @@ Raphael.fn.serialize = {
   },
 
   load_json : function(json) {
+    if (typeof(json) == "string") { json = JSON.parse(json); } // allow stringified or object input
+    
     var paper = this;
     var set = paper.set();
     $.each(json, function(index, node) {
