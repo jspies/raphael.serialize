@@ -38,6 +38,17 @@ Raphael.fn.serialize = {
               fill: node.attrs['fill']
             }
             break;
+          case "circle":
+            var object = {
+              type: node.type,
+              cx: node.attrs['cx'],
+              cy: node.attrs['cy'],
+              r: node.attrs['r'],
+              stroke: node.attrs['stroke'] === 0 ? 'none': node.attrs['stroke'],
+              'stroke-width': node.attrs['stroke-width'],
+              fill: node.attrs['fill']
+            }
+            break;
           case "rect":
             var object = {
               type: node.type,
@@ -50,6 +61,7 @@ Raphael.fn.serialize = {
               fill: node.attrs['fill']
             }
             break;
+
           case "text":
             var object = {
               type: node.type,
@@ -108,7 +120,7 @@ Raphael.fn.serialize = {
 
   load_json : function(json) {
     if (typeof(json) == "string") { json = JSON.parse(json); } // allow stringified or object input
-    
+
     var paper = this;
     var set = paper.set();
     $.each(json, function(index, node) {
