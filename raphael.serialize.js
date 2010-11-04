@@ -46,7 +46,8 @@ Raphael.fn.serialize = {
               r: node.attrs['r'],
               stroke: node.attrs['stroke'] === 0 ? 'none': node.attrs['stroke'],
               'stroke-width': node.attrs['stroke-width'],
-              fill: node.attrs['fill']
+              fill: node.attrs['fill'],
+	      opacity: node.attrs['opacity'],
             }
             break;
           case "rect":
