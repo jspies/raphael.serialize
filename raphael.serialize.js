@@ -42,6 +42,7 @@ Raphael.fn.serialize = {
             break;
           case "circle":
             if( node.node.style.display == "none" ) break;
+            if( node.attrs['opacity'] === 0 ) break;
             var object = {
               type: node.type,
               cx: node.attrs['cx'],
