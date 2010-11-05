@@ -77,6 +77,7 @@ Raphael.fn.serialize = {
               text: node.attrs['text'],
               'text-anchor': node.attrs['text-anchor']
             };
+	  foo = node;
             break;
 
           case "path":
