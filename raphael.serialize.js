@@ -64,7 +64,7 @@ Raphael.fn.serialize = {
             break;
 
           case "text":
-            if( object.node.style.display == "none" ) break;
+            if( node.node.style.display == "none" ) break;
             var object = {
               type: node.type,
               font: node.attrs['font'],
