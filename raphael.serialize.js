@@ -24,7 +24,7 @@ Raphael.fn.serialize = {
               y: node.attrs['y'],
               src: node.attrs['src'],
               transform: node.transformations ? node.transformations.join(' ') : ''
-            }
+            };
             break;
           case "ellipse":
             var object = {
@@ -36,7 +36,7 @@ Raphael.fn.serialize = {
               stroke: node.attrs['stroke'] === 0 ? 'none': node.attrs['stroke'],
               'stroke-width': node.attrs['stroke-width'],
               fill: node.attrs['fill']
-            }
+            };
             break;
           case "circle":
             var object = {
@@ -48,7 +48,7 @@ Raphael.fn.serialize = {
               'stroke-width': node.attrs['stroke-width'],
               fill: node.attrs['fill'],
 	      opacity: node.attrs['opacity'],
-            }
+            };
             break;
           case "rect":
             var object = {
@@ -60,7 +60,7 @@ Raphael.fn.serialize = {
               stroke: node.attrs['stroke'] === 0 ? 'none': node.attrs['stroke'],
               'stroke-width': node.attrs['stroke-width'],
               fill: node.attrs['fill']
-            }
+            };
             break;
 
           case "text":
@@ -76,7 +76,7 @@ Raphael.fn.serialize = {
               y: node.attrs['y'],
               text: node.attrs['text'],
               'text-anchor': node.attrs['text-anchor']
-            }
+            };
             break;
 
           case "path":
@@ -107,7 +107,7 @@ Raphael.fn.serialize = {
               stroke: node.attrs['stroke'] === 0 ? 'none': node.attrs['stroke'],
               'stroke-width': node.attrs['stroke-width'],
               transform: node.transformations ? node.transformations.join(' ') : ''
-            }
+            };
         }
 
         if (object) {
