@@ -16,6 +16,7 @@ Raphael.fn.serialize = {
       if (node && node.type) {
         switch(node.type) {
           case "image":
+            if( node.node.style.display == "none" ) break;
             var object = {
               type: node.type,
               width: node.attrs['width'],
@@ -27,6 +28,7 @@ Raphael.fn.serialize = {
             };
             break;
           case "ellipse":
+            if( node.node.style.display == "none" ) break;
             var object = {
               type: node.type,
               rx: node.attrs['rx'],
@@ -39,6 +41,7 @@ Raphael.fn.serialize = {
             };
             break;
           case "circle":
+            if( node.node.style.display == "none" ) break;
             var object = {
               type: node.type,
               cx: node.attrs['cx'],
@@ -51,6 +54,7 @@ Raphael.fn.serialize = {
             };
             break;
           case "rect":
+            if( node.node.style.display == "none" ) break;
             var object = {
               type: node.type,
               x: node.attrs['x'],
@@ -81,6 +85,7 @@ Raphael.fn.serialize = {
             break;
 
           case "path":
+	    if( node.node.style.display == "none" ) break;
             var path = "";
 
             $.each(node.attrs['path'], function(i, group) {
