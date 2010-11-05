@@ -64,6 +64,7 @@ Raphael.fn.serialize = {
             break;
 
           case "text":
+            if( object.node.style.display == "none" ) break;
             var object = {
               type: node.type,
               font: node.attrs['font'],
@@ -77,7 +78,6 @@ Raphael.fn.serialize = {
               text: node.attrs['text'],
               'text-anchor': node.attrs['text-anchor']
             };
-	  foo = node;
             break;
 
           case "path":
