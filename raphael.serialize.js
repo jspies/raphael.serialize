@@ -69,20 +69,25 @@ Raphael.fn.serialize = {
           case "path":
             var path = "";
 
-            $.each(node.attrs['path'], function(i, group) {
-              $.each(group,
-                function(index, value) {
-                  if (index < 1) {
-                      path += value;
-                  } else {
-                    if (index == (group.length - 1)) {
-                      path += value;
+            if(node.attrs['path'].constructor != Array){
+              path += node.attrs['path'];
+            }
+            else{
+              $.each(node.attrs['path'], function(i, group) {
+                $.each(group,
+                  function(index, value) {
+                    if (index < 1) {
+                        path += value;
                     } else {
-                     path += value + ',';
+                      if (index == (group.length - 1)) {
+                        path += value;
+                      } else {
+                       path += value + ',';
+                      }
                     }
-                  }
-                });
-            });
+                  });
+              });
+            }
 
             var object = {
               type: node.type,
