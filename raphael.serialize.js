@@ -17,6 +17,7 @@ Raphael.fn.serialize = {
       if (node && node.type) {
         switch(node.type) {
           case "image":
+            if( node.node.style.display == "none" ) break;
             var object = {
               type: node.type,
               width: node.attrs['width'],
@@ -25,9 +26,10 @@ Raphael.fn.serialize = {
               y: node.attrs['y'],
               src: node.attrs['src'],
               transform: node.transformations ? node.transformations.join(' ') : ''
-            }
+            };
             break;
           case "ellipse":
+            if( node.node.style.display == "none" ) break;
             var object = {
               type: node.type,
               rx: node.attrs['rx'],
@@ -37,9 +39,24 @@ Raphael.fn.serialize = {
               stroke: node.attrs['stroke'] === 0 ? 'none': node.attrs['stroke'],
               'stroke-width': node.attrs['stroke-width'],
               fill: node.attrs['fill']
-            }
+            };
+            break;
+          case "circle":
+            if( node.node.style.display == "none" ) break;
+            if( node.attrs['opacity'] === 0 ) break;
+            var object = {
+              type: node.type,
+              cx: node.attrs['cx'],
+              cy: node.attrs['cy'],
+              r: node.attrs['r'],
+              stroke: node.attrs['stroke'] === 0 ? 'none': node.attrs['stroke'],
+              'stroke-width': node.attrs['stroke-width'],
+              fill: node.attrs['fill'],
+	      opacity: node.attrs['opacity'],
+            };
             break;
           case "rect":
+            if( node.node.style.display == "none" ) break;
             var object = {
               type: node.type,
               x: node.attrs['x'],
@@ -49,9 +66,11 @@ Raphael.fn.serialize = {
               stroke: node.attrs['stroke'] === 0 ? 'none': node.attrs['stroke'],
               'stroke-width': node.attrs['stroke-width'],
               fill: node.attrs['fill']
-            }
+            };
             break;
+
           case "text":
+            if( node.node.style.display == "none" ) break;
             var object = {
               type: node.type,
               font: node.attrs['font'],
@@ -64,10 +83,11 @@ Raphael.fn.serialize = {
               y: node.attrs['y'],
               text: node.attrs['text'],
               'text-anchor': node.attrs['text-anchor']
-            }
+            };
             break;
 
           case "path":
+	    if( node.node.style.display == "none" ) break;
             var path = "";
 
             if(node.attrs['path'].constructor != Array){
@@ -100,7 +120,7 @@ Raphael.fn.serialize = {
               stroke: node.attrs['stroke'] === 0 ? 'none': node.attrs['stroke'],
               'stroke-width': node.attrs['stroke-width'],
               transform: node.transformations ? node.transformations.join(' ') : ''
-            }
+            };
         }
 
         if (object) {
